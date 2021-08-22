@@ -24,27 +24,27 @@ public class TwoCarSelectionScript : MonoBehaviour
         selection1 = Instantiate(selectionOptions[selectionIndex1], transform.position, transform.rotation);
         selectionText1.text = carNames[selectionIndex1];
         //Player 2
-        selection2 = Instantiate(selectionOptions[selectionIndex2], transform.position, transform.rotation);
+        selection2 = Instantiate(selectionOptions[selectionIndex2], transform.position + 40 * Vector3.right, transform.rotation);
         selectionText2.text = carNames[selectionIndex2];
     }
-    
+
     void SpawnSelection1()
     {
        Destroy(selection1);
-       selection1 = Instantiate(selectionOptions[selectionIndex1], transform.position,transform.rotation);
+       selection1 = Instantiate(selectionOptions[selectionIndex1], transform.position ,transform.rotation);
        selectionText1.text = carNames[selectionIndex1];
     }
 
     void SpawnSelection2()
     {
         Destroy(selection2);
-        selection2 = Instantiate(selectionOptions[selectionIndex2], transform.position, transform.rotation);
+        selection2 = Instantiate(selectionOptions[selectionIndex2], transform.position + 40 * Vector3.right, transform.rotation);
         selectionText2.text = carNames[selectionIndex2];
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             selectionIndex1 -= 1;
             if(selectionIndex1 < 0)
@@ -53,7 +53,7 @@ public class TwoCarSelectionScript : MonoBehaviour
             }
             SpawnSelection1();
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.D))
         {
             selectionIndex1 += 1;
             if(selectionIndex1 == selectionOptions.Length)
@@ -62,7 +62,7 @@ public class TwoCarSelectionScript : MonoBehaviour
             }
             SpawnSelection1();
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             selectionIndex2 -= 1;
             if (selectionIndex2 < 0)
@@ -71,7 +71,7 @@ public class TwoCarSelectionScript : MonoBehaviour
             }
             SpawnSelection2();
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             selectionIndex2 += 1;
             if (selectionIndex2 == selectionOptions.Length)

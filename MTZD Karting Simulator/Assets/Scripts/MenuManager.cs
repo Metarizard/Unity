@@ -23,10 +23,13 @@ public class MenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Space)) && (titleScreen.activeInHierarchy))
+        if(titleScreen != null)
         {
-            titleScreen.SetActive(false);
-            mainMenuScreen.SetActive(true);
+            if ((Input.GetKeyDown(KeyCode.Space)) && (titleScreen.activeInHierarchy))
+            {
+                titleScreen.SetActive(false);
+                mainMenuScreen.SetActive(true);
+            }
         }
     }
 
