@@ -8,9 +8,11 @@ public class Car : MonoBehaviour
 
     public float motorTorque = 1500.0f;
     public float maxSteer = 20.0f;
-  
+    public float brakeTorque = 1000.0f;
+
     public float Steer { get; set; }
     public float Throttle { get; set; }
+    public float Brake { get; set; }
 
     private Rigidbody rB;
     private Wheel[] wheels;
@@ -25,16 +27,13 @@ public class Car : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-        Steer = GameManager.Instance.InputController.SteerInput;
-        Throttle = GameManager.Instance.InputController.ThrottleInput;
-        Debug.Log(Throttle);
+    void FixedUpdate()
+    { 
         foreach(var wheel in wheels)
         {
             wheel.SteerAngle = Steer * maxSteer;
             wheel.Torque = Throttle * motorTorque;
+            wheel.Brake = Brake * brakeTorque;
         }
     }
 }

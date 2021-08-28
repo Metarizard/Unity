@@ -7,10 +7,13 @@ public class InputController : MonoBehaviour
 
     public string inputSteerAxis = "Horizontal";
     public string inputThrottleAxis = "Vertical";
+    public string inputBrakeButton = "Stop";
 
     public float ThrottleInput { get; private set; }
 
     public float SteerInput { get; private set; }
+
+    public float BrakeInput { get; private set; }
 
     // Start is called before the first frame update
     void Start()
@@ -23,5 +26,6 @@ public class InputController : MonoBehaviour
     {
         SteerInput = Input.GetAxis(inputSteerAxis);
         ThrottleInput = Input.GetAxis(inputThrottleAxis);
+        BrakeInput = Input.GetAxis(inputBrakeButton);
     }
 }
