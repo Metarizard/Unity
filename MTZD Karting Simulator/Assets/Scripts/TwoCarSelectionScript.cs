@@ -84,11 +84,11 @@ public class TwoCarSelectionScript : MonoBehaviour
         {
             Destroy(selection1);
             Destroy(selection2);
-            CircuitMenu();
+            Circuit();
         }
     }
 
-    public void CircuitMenu()
+    public void Circuit()
     {
         SceneManager.LoadScene(3);
     }

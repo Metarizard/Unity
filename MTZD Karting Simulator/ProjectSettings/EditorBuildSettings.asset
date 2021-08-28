@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/CarMenuTwo.unity
     guid: 37f768e9c5b6fe64aaa85426f85bc379
   - enabled: 1
-    path: Assets/Scenes/Menus/CircuitMenu.unity
-    guid: 23f8ab76847d8f84ca88522f5cff7f44
+    path: Assets/Scenes/Circuits/MainCircuit.unity
+    guid: 0ae6d84903d918d44969f9965b18c92c
   m_configObjects: {}
