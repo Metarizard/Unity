@@ -12,6 +12,7 @@ public class MenuManager : MonoBehaviour
 
     private GameObject titleScreen;
     public GameObject mainMenuScreen;
+
     void Start()
     {
         titleScreen = GameObject.Find("TitleScreen");
@@ -31,6 +32,14 @@ public class MenuManager : MonoBehaviour
                 mainMenuScreen.SetActive(true);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Delete))
+        {
+#if UNITY_EDITOR 
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+            Application.Quit();
+        }
     }
 
     private void Awake()
@@ -46,11 +55,15 @@ public class MenuManager : MonoBehaviour
 
     public void SinglePlayer()
     {
+        GameManager.singlePlayer = true;
+        GameManager.twoPlayers = false;
         SceneManager.LoadScene(1);
     }
 
     public void TwoPlayers()
     {
+        GameManager.twoPlayers = true;
+        GameManager.singlePlayer = false;
         SceneManager.LoadScene(2);
     }
 }

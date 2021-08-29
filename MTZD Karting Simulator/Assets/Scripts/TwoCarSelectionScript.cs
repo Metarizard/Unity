@@ -7,11 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class TwoCarSelectionScript : MonoBehaviour
 {
-    public static GameObject[] selectionOptions;
-    public static int selectionIndex1 = 0;
+    public static bool twoPlayers;
+    private static GameObject[] selectionOptions;
+    private static GameObject[] prefabs;
+    public static int selectionIndex1 = 2;
     private GameObject selection1;
     public TMP_Text selectionText1;
-    public static int selectionIndex2 = 1;
+    public static int selectionIndex2 = 3;
     private GameObject selection2;
     public TMP_Text selectionText2;
     private static string[] carNames = { "Camaro", "Fat Lambo", "Sport Golf", "Formula One", "Old Mustang", "Aerodynamical Mix" };
@@ -19,6 +21,7 @@ public class TwoCarSelectionScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        prefabs = Resources.LoadAll<GameObject>("Prefabs");
         selectionOptions = Resources.LoadAll<GameObject>("Cars");
         //Player 1
         selection1 = Instantiate(selectionOptions[selectionIndex1], transform.position, transform.rotation);
